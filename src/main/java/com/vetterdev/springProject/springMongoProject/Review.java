@@ -17,6 +17,7 @@ public class Review {
     private ObjectId id;
     private String body;
 
+    // Body only constructor since you can't set the id
     public Review(String body) {
         this.body = body;
     }

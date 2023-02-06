@@ -14,9 +14,11 @@ public class ReviewService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    // create a review
     public Review createReview(String reviewBody, String imdbId) {
         Review review = reviewRepository.insert(new Review(reviewBody));
-
+        
+        // Matches imdbId and adds a new review to review array for movie
         mongoTemplate.update(Movie.class)
             .matching(Criteria.where("imdbId").is(imdbId))
             .apply(new Update().push("reviewIds").value(review))
