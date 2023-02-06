@@ -1,5 +1,7 @@
 .gradle
 /build/
+.env
+.vscode/
 
 # Ignore Gradle GUI config
 gradle-app.setting
